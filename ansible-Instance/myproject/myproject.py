@@ -34,7 +34,7 @@ def insert_data():
         con.commit()
 
         return jsonify({'mensaje': 'Datos insertados correctamente'}), 201
-       
+
 
     except Exception as err:
         print ("Error:", str(err))
@@ -53,11 +53,12 @@ def get_data():
         con = psycopg2.connect(**db_config)
         cursor = con.cursor()
 
-        cursor.execute("SELECT * FROM form;")
+        postgres_query = 'SELECT * FROM form;'
+        cursor.execute(postgres_query)
         resultados = cursor.fetchall()
 
-        data_json = [{"name": row[1], "lastename": row[2]} for row in resultados]
-        #datos_json = [{'nombre': row[0], 'edad': row[1]} for row in resultados]
+        data_json = [{"name": row[0], "lastname": row[1]} for row in resultados]
+        #data_json = [{'nombre': row[0], 'edad': row[1]} for row in resultados]
         return jsonify({"data": data_json})
 
     except Exception as e:
