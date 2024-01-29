@@ -20,16 +20,20 @@
     ##DB_HOST_PRIVATE: "10.20.20.1156"
 
   tasks:
+  - name: Esperar hasta que la máquina virtual esté lista para la conexión SSH
+    wait_for_connection:
+      timeout: 120
+
   - name: apt install required packages
     apt:
       update_cache: yes
       name:
         - wget
-        - curl 
+        - curl
         - python3-pip
         - python3-dev
         - nginx
-        - python3-venv        
+        - python3-venv
       state: present
 
   - name: Create remote directory
