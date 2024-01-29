@@ -1,0 +1,15 @@
+webservers:
+  hosts:
+    ##web1:
+      ##ansible_port: 22
+      ##ansible_host: 192.168.56.10
+      ##ansible_user: "admin"
+      ##ansible_ssh_private_key_file: "/home/frank/vagrantlab/.vagrant/machines/default/private_key"
+      ##ansible_python_interpreter: /usr/bin/python3
+      
+    db1:
+      ansible_port: 22
+      ansible_host: 192.168.56.11
+      ansible_user: "vagrant"
+      ansible_ssh_private_key_file: "/home/frank/vagrantlab/ansible-DB/.vagrant/machines/default/virtualbox/private_key"
+      ansible_python_interpreter: /usr/bin/python3
